@@ -29,9 +29,24 @@
 
 ## Về đồ án cuối kỳ
 
-- Được giao khi báo cáo xong giữa kỳ
-- Thời gian thực hiện: 5-6 tuần
-- Sẽ bao gồm báo cáo và coding, học viên phải code được một ứng dụng sử dụng ML trong an toàn thông tin
+- ~~Được giao khi báo cáo xong giữa kỳ~~ Đã được giao, bao gồm 2 phần
+    - Báo cáo về Mpdel attack: **Transfer Learning Attack**
+    - Thực hiện xây dựng một mô hình học máy, học sâu dựa trên dữ liệu đã cho sẵn, dữ liệu sử dụng là hai file csv đã chia tập train, test. Cụ thể [tại đây](./final/project/src/data/README.md)
+- ~~Thời gian thực hiện: 5-6 tuần~~ Thời gian báo cáo: ngày 11 và 18 tháng 12, 2024
+- Sẽ bao gồm báo cáo và coding, project structure gợi ý như sau: ~~học viên phải code được một ứng dụng sử dụng ML trong an toàn thông tin~~
+```bash
+.
+├── data/
+│   ├── train.csv
+│   └── test.csv
+├── requirements.txt
+├── main.py # For clasfication
+├── project.ipynb # Notebook file from google collab
+└── models/
+    └── model.pkl # Model file
+```
+
+Dựa trên yêu cầu, project sẽ được xây dựng trong thư mục `final` với cấu trúc như hiện tại.
 
 ## Cách cập nhật vào repo
 
