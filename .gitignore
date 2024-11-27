@@ -145,8 +145,9 @@ pyenv-win/
 # Custom library
 pyvenv.cfg
 share
-
+etc
 # Custom data file
 metadata.json
 train*.pkl
 test*.pkl
+*.csv
