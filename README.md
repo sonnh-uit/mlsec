@@ -33,20 +33,20 @@
     - Báo cáo về **Transfer Learning Attack**: 60% điểm
         - Báo cáo thuyết trình: 60%
         - Chạy được một demo: 40%
-    - Thực hiện xây dựng một mô hình học máy, học sâu dựa trên dữ liệu đã cho sẵn, dữ liệu sử dụng là hai file csv đã chia tập train, test. Cụ thể [tại đây](./final/project/src/data/README.md): 40% điểm, không cần slide và báo cáo
+    - Thực hiện xây dựng một mô hình học máy, học sâu dựa trên dữ liệu đã cho sẵn, dữ liệu sử dụng là hai file csv đã chia tập train, test [tại đây](./final/project/src/data/README.md): 40% điểm, không cần slide và báo cáo. Project structure như mô tả
+
+        ```bash
+        .
+        ├── data/
+        │   ├── train.csv
+        │   └── test.csv
+        ├── requirements.txt
+        ├── main.py # For quick running
+        ├── project.ipynb # Notebook file for analysis and training, turning
+        └── models/
+            └── model.pkl # Model file
+        ```
 - ~~Thời gian thực hiện: 5-6 tuần~~ Thời gian báo cáo: ngày 11 và 18 tháng 12, 2024
-- Sẽ bao gồm báo cáo và coding, project structure gợi ý như sau: ~~học viên phải code được một ứng dụng sử dụng ML trong an toàn thông tin~~
-```bash
-.
-├── data/
-│   ├── train.csv
-│   └── test.csv
-├── requirements.txt
-├── main.py # For quick running
-├── project.ipynb # Notebook file for analysis and training, turning
-└── models/
-    └── model.pkl # Model file
-```
 
 Dựa trên yêu cầu, project sẽ được xây dựng trong thư mục `final` với cấu trúc như hiện tại.
 
