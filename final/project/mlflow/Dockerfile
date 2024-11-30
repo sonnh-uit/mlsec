@@ -1,4 +1,4 @@
-FROM python:3.12.5
+FROM python:3.10.11
 WORKDIR /mlflow
 RUN pip3 install mlflow
 ENV BACKEND_URI sqlite:///mlflow.db
