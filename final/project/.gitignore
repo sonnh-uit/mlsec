@@ -1,2 +1,6 @@
 classification_report.csv
 feature_importance.png
+mlflow.db
+*.csv
+mlruns
+mlartifacts
