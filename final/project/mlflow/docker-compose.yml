@@ -1,0 +1,14 @@
+# https://medium.com/@dast04/running-airflow-with-docker-compose-2023-for-machine-learning-a78eeadc00cd
+services:
+  mlflow-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-data:/mlflow
+
+
+volumes:
+  mlflow-data:
