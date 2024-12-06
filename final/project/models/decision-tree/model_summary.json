@@ -1,0 +1,16 @@
+{
+    "parameter": {
+        "max_features": 28,
+        "criterion": "gini",
+        "max_depth": 960,
+        "min_samples_split": 6,
+        "min_samples_leaf": 18,
+        "random_state": 42
+    },
+    "metrics": {
+        "f1": 0.9297751222553572,
+        "precision": 0.930758591859623,
+        "accuracy": 0.9302997865535122,
+        "recall": 0.9302997865535122
+    }
+}
