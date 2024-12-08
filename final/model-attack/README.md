@@ -64,4 +64,5 @@ python blackbox_attack_by_transfer.py --dataset=usps --arch=DTN --ckpt_a=./ckpt/
 
 # 4. Tổng kết:
 White-box Attack: Cho phép kiểm tra trực tiếp độ chống chịu của mô hình với nhiễu đối kháng.
+
 Black-box Attack: Dựa vào tính chuyển giao để tấn công các mô hình mục tiêu, đặc biệt là các mô hình tinh chỉnh hoặc khởi tạo chung.
