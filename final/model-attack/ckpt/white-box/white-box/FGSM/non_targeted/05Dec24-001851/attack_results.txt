@@ -1,0 +1,4 @@
+configs: Namespace(dataset='mnist', arch='DTN', ckpt_file='./ckpt/white-box/mnist_scratch.pt', attack_method='FGSM', targeted=False, train_ratio=1.0, eps='4,8,16,32', g=False, n_classes=10)
+clean accuracy: 0.9423
+eps: 0.01568627450980392,0.03137254901960784,0.06274509803921569,0.12549019607843137
+accuracy: 0.911,0.8714,0.7755,0.5086
