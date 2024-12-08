@@ -1,0 +1,44 @@
+{
+    "parameter": {
+        "tree_method": "hist",
+        "device": "cuda",
+        "objective": "reg:squarederror",
+        "n_estimators": 1000,
+        "verbosity": 0,
+        "eval_metric": [
+            "rmse",
+            "mae",
+            "mape",
+            "logloss",
+            "error",
+            "auc"
+        ],
+        "learning_rate": 0.018040473547318067,
+        "max_depth": 26,
+        "subsample": 0.8108779665912791,
+        "colsample_bytree": 0.6833256706600765,
+        "min_child_weight": 10
+    },
+    "metrics": {
+        "f1": 0.9408211248274494,
+        "precision": 0.9411736079314035,
+        "accuracy": 0.9419496061175173,
+        "recall": 0.9419496061175173
+    },
+    "droped_column": [
+        [
+            "ID",
+            "IPv",
+            "Drate",
+            "Telnet",
+            "SMTP",
+            "ARP",
+            "cwr_flag_number",
+            "ece_flag_number",
+            "fin_flag_number",
+            "SSH",
+            "psh_flag_number",
+            "rst_flag_number"
+        ]
+    ]
+}

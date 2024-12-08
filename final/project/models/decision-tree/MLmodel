@@ -1,0 +1,42 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.11
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.2
+mlflow_version: 2.18.0
+model_size_bytes: 6059851
+model_uuid: d6d50b1a691d464eb11f9a9b56f4fde1
+run_id: 0ab00b58e784484b9cca2ca33c611be2
+signature:
+  inputs: '[{"type": "double", "name": "flow_duration", "required": true}, {"type":
+    "double", "name": "Header_Length", "required": true}, {"type": "double", "name":
+    "Protocol type", "required": true}, {"type": "double", "name": "Duration", "required":
+    true}, {"type": "double", "name": "Rate", "required": true}, {"type": "double",
+    "name": "Srate", "required": true}, {"type": "double", "name": "fin_flag_number",
+    "required": true}, {"type": "double", "name": "syn_flag_number", "required": true},
+    {"type": "double", "name": "syn_count", "required": true}, {"type": "double",
+    "name": "fin_count", "required": true}, {"type": "double", "name": "urg_count",
+    "required": true}, {"type": "double", "name": "rst_count", "required": true},
+    {"type": "double", "name": "HTTP", "required": true}, {"type": "double", "name":
+    "UDP", "required": true}, {"type": "double", "name": "ICMP", "required": true},
+    {"type": "double", "name": "Tot sum", "required": true}, {"type": "double", "name":
+    "Min", "required": true}, {"type": "double", "name": "Max", "required": true},
+    {"type": "double", "name": "AVG", "required": true}, {"type": "double", "name":
+    "IAT", "required": true}, {"type": "double", "name": "Number", "required": true},
+    {"type": "double", "name": "Magnitue", "required": true}, {"type": "double", "name":
+    "Radius", "required": true}, {"type": "double", "name": "Covariance", "required":
+    true}, {"type": "double", "name": "Variance", "required": true}, {"type": "double",
+    "name": "Weight", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "object", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2024-12-07 19:54:15.256956'
