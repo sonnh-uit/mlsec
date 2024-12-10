@@ -1,0 +1,385 @@
+Slide 1: Transfer learning
+	Trước khi đi sâu vào các cuộc tấn công, chúng ta cần hiểu rõ Transfer Learning là gì. Transfer Learning, hay còn gọi là học chuyển giao, là một kỹ thuật mạnh mẽ trong trí tuệ nhân tạo. Thay vì phải xây dựng một mô hình mới từ đầu, chúng ta có thể tận dụng các mô hình đã được huấn luyện trên một miền nguồn với lượng dữ liệu lớn và áp dụng kiến thức đó để giải quyết các bài toán trong miền đích, nơi mà dữ liệu thường khan hiếm. Điều này không chỉ giúp tiết kiệm thời gian và chi phí mà còn cải thiện hiệu quả tổng thể của hệ thống.
+
+	Định nghĩa:"Học chuyển giao là quá trình chuyển giao tri thức và thông tin từ một miền (source domain) đã được huấn luyện sang một miền khác (target domain) để giải quyết các bài toán mới.“
+
+	Ứng dụng thực tiễn:
+	"Transfer Learning được sử dụng rộng rãi trong các lĩnh vực như nhận diện hình ảnh – ví dụ, các mô hình như ResNet hoặc VGG đã được huấn luyện trên tập dữ liệu lớn như ImageNet.“
+	"Trong xử lý ngôn ngữ tự nhiên, chúng ta có các mô hình như BERT hoặc GPT, giúp xử lý ngữ nghĩa văn bản, trả lời câu hỏi, và tạo nội dung."
+
+	Ví dụ:
+	Mô hình ban đầu trên miền nguồn (Source Domain): Bên trái, chúng ta có một mô hình học sâu đã được huấn luyện trên tập dữ liệu lớn, chẳng hạn như ImageNet. Các lớp đầu tiên của mô hình học các đặc trưng chung, như phát hiện cạnh hoặc hình dạng cơ bản.
+
+	Chuyển giao tri thức: Các tham số đã được huấn luyện từ mô hình nguồn được chuyển giao sang bài toán mới. Ở đây, miền đích có thể là nhận diện các ảnh X-quang để phân loại tình trạng sức khỏe phổi.
+
+	Tinh chỉnh miền đích (Target Domain): Các lớp cuối của mô hình được điều chỉnh hoặc huấn luyện lại để phù hợp với bài toán cụ thể, ví dụ như phân loại "phổi khỏe mạnh" hoặc "phổi có bệnh lý".
+
+	Ví dụ ứng dụng khác:
+	Ở phía dưới hình ảnh, chúng ta thấy sự chuyển đổi kiến thức từ một vận động viên trượt băng nghệ thuật sang một vận động viên trượt tuyết. Điều này tương tự như cách một mô hình học được điều chỉnh để phù hợp với một nhiệm vụ mới mà vẫn tận dụng được kiến thức cơ bản đã học từ nhiệm vụ cũ.
+
+	Kết luận:Như vậy, Transfer Learning không chỉ giúp tiết kiệm tài nguyên mà còn tận dụng tri thức đã học, làm tăng hiệu quả cho nhiều bài toán trong các lĩnh vực khác nhau.
+
+Slide 2: Transfer learning attack
+	Câu dẫn: 
+	Tuy nhiên, với sự tiện lợi và hiệu quả mà Transfer Learning mang lại, nó cũng tiềm ẩn những rủi ro lớn về bảo mật. Các mô hình học chuyển giao không chỉ dễ bị tấn công mà còn có thể trở thành mục tiêu của những kẻ xấu. Đây là nơi khái niệm Transfer Learning Attack xuất hiện. Vậy, Transfer Learning Attack là gì? Nó chính là các cuộc tấn công đối kháng nhằm khai thác những điểm yếu trong các mô hình học chuyển giao, từ đó gây ra lỗi phân loại, thao túng kết quả, hoặc thậm chí rò rỉ dữ liệu nhạy cảm từ hệ thống.
+
+	Lợi dụng tính liên kết giữa mô hình nguồn và mô hình đích:
+	Trong Transfer Learning, mô hình đích kế thừa và sử dụng các tham số, kiến trúc, hoặc dữ liệu từ mô hình nguồn. Điều này tạo ra một sự phụ thuộc chặt chẽ giữa hai mô hình.
+	Kẻ tấn công có thể khai thác mối liên hệ này bằng cách tác động vào mô hình nguồn (pre-trained model) hoặc dữ liệu được sử dụng trong quá trình huấn luyện.
+
+	Mục tiêu của Transfer Learning Attack:
+	Gây lỗi phân loại: Ví dụ, một hình ảnh X-quang bị thao túng có thể khiến mô hình dự đoán sai tình trạng bệnh lý.
+	Trích xuất dữ liệu: Kẻ tấn công có thể suy luận ra thông tin từ dữ liệu huấn luyện gốc, bao gồm các thông tin nhạy cảm như danh tính bệnh nhân hoặc dữ liệu tài chính.
+	Thao túng mô hình: Bằng cách chèn dữ liệu độc hại vào quá trình huấn luyện, kẻ tấn công có thể làm cho mô hình hoạt động theo ý muốn, ví dụ như bỏ qua các mối đe dọa bảo mật hoặc ưu tiên các hành vi không mong muốn.
+
+Slide 3:
+	Lời dẫn:"Trong Transfer Learning Attack, hai dạng tấn công phổ biến nhất là tấn công hộp trắng (White-box Attack) và tấn công hộp đen (Black-box Attack). Đây là các chiến lược mà kẻ tấn công sử dụng để khai thác các mô hình học chuyển giao, dựa trên mức độ truy cập vào hệ thống mục tiêu. Chúng ta hãy cùng tìm hiểu chi tiết hơn từng loại tấn công."
+
+	Điểm nhấn:
+		Tấn công hộp trắng (White-box Attack):
+		Mô tả:
+		Kẻ tấn công có quyền truy cập đầy đủ vào mô hình đích, bao gồm cả kiến trúc, trọng số, và dữ liệu huấn luyện.
+		Với thông tin chi tiết này, kẻ tấn công có thể tạo ra các ví dụ đối kháng (adversarial examples) hoặc thực hiện các thao tác tinh chỉnh để làm sai lệch kết quả dự đoán.
+		Ví dụ: Một mô hình phân loại hình ảnh có thể bị khai thác để gán nhãn sai bằng cách thay đổi một số pixel không đáng kể trên hình ảnh.
+
+		Tấn công hộp đen (Black-box Attack):
+		Mô tả:
+		Kẻ tấn công không có quyền truy cập vào thông tin bên trong mô hình. Thay vào đó, chúng chỉ có thể suy đoán dựa trên đầu ra của mô hình khi cung cấp các đầu vào.
+		Kỹ thuật phổ biến bao gồm việc thực hiện nhiều truy vấn mô hình để suy luận hành vi hoặc tạo ví dụ đối kháng từ một mô hình khác và kiểm tra tính chuyển giao của chúng.
+		Ví dụ: Một ứng dụng API nhận diện khuôn mặt có thể bị tấn công bằng cách gửi hàng loạt hình ảnh và phân tích phản hồi để tìm ra điểm yếu.
+
+	[Grey-box Attack trong Transfer Learning]:
+	Grey-box Attack có trong Transfer Learning Attack không? Có! Đây là một dạng tấn công trung gian giữa hộp trắng và hộp đen.
+	Mô tả về Grey-box Attack:
+	Kẻ tấn công có một phần thông tin về mô hình đích, chẳng hạn như kiến trúc hoặc một số đặc điểm của dữ liệu, nhưng không có toàn quyền truy cập như trong hộp trắng.
+	Với thông tin hạn chế này, kẻ tấn công vẫn có thể khai thác lỗ hổng để gây rối loạn hoặc đánh cắp thông tin từ mô hình.
+	Grey-box Attack thường xảy ra trong các tình huống mà một phần mã nguồn hoặc dữ liệu huấn luyện bị lộ.
+
+	[Ví dụ so sánh 3 loại tấn công]:
+	Hộp trắng: Toàn bộ thông tin của mô hình bị lộ.
+	Hộp đen: Không có thông tin trực tiếp, chỉ có thể truy vấn mô hình.
+	Hộp xám (Grey-box): Một phần thông tin, như kiến trúc hoặc đặc tính dữ liệu, bị lộ.
+
+Slide 4: 
+	Lời dẫn:"Để hiểu rõ hơn về cách thức một cuộc tấn công Transfer Learning diễn ra, chúng ta cần đi qua từng giai đoạn. Thông thường, một kịch bản tấn công sẽ được chia thành bốn giai đoạn chính: từ việc lập kế hoạch ban đầu, thao túng dữ liệu, can thiệp vào mô hình, cho đến triển khai tấn công cuối cùng. Hãy cùng xem xét từng bước chi tiết."
+
+	Điểm nhấn:
+		Giai đoạn 1: Do thám và lập kế hoạch
+		Xác định mô hình mục tiêu:
+		Kẻ tấn công nghiên cứu các mô hình tiền huấn luyện công khai hoặc các mô hình đã triển khai trong tổ chức mục tiêu.
+		Hiểu rõ chức năng và mục đích sử dụng của mô hình để tìm điểm yếu.
+
+		Phân tích dữ liệu và sự tương đồng miền:
+		Đánh giá mức độ tương đồng giữa miền dữ liệu của mô hình mục tiêu và miền tấn công mà kẻ tấn công muốn khai thác.
+		Ví dụ: Một mô hình nhận diện giao thông ở Mỹ có thể dễ dàng chuyển giao để nhận diện giao thông ở Thụy Điển, nhưng cũng là cơ hội để kẻ tấn công chèn dữ liệu độc hại.
+
+		Chọn mục tiêu tấn công:
+		Kẻ tấn công xác định kết quả mong muốn, chẳng hạn:
+		Gây lỗi phân loại.
+		Trích xuất dữ liệu nhạy cảm.
+		Thao túng hành vi của mô hình.
+
+		Giai đoạn 2: Nhiễm độc dữ liệu và tạo ví dụ đối kháng
+		Nhiễm độc dữ liệu nguồn:
+		Chèn dữ liệu bị thao túng (poisoned data) vào tập dữ liệu huấn luyện của mô hình nguồn.
+		Ví dụ: Thêm các hình ảnh có trigger (như biểu tượng đặc biệt) để mô hình học sai.
+
+		Tạo ví dụ đối kháng:
+		Sinh các đầu vào được thiết kế cẩn thận (adversarial examples) để khai thác lỗ hổng của mô hình.
+		Kỹ thuật liên quan:
+		Pixel attack: Thay đổi một số pixel nhỏ mà mắt người không nhận ra nhưng mô hình sẽ đưa ra dự đoán sai.
+		Adversarial perturbation: Thêm nhiễu vào đầu vào để làm tăng khả năng chuyển giao tấn công giữa các mô hình.
+		Hậu quả:
+		Những ví dụ này có thể làm lệch nhãn (label drift), gây gián đoạn quy trình CI/CD và làm sai lệch việc huấn luyện các mô hình mới.
+
+		Giai đoạn 3: Thao túng mô hình và chuyển giao
+		Sử dụng mô-đun Adapter:
+		Kẻ tấn công sử dụng các module adapter để tinh chỉnh một số lớp của mô hình mà không cần huấn luyện lại toàn bộ kiến trúc.
+		Lưu ý: Nhiễm độc chỉ 0.001% dữ liệu cũng có thể gây ảnh hưởng lớn.
+
+		Tinh chỉnh và huấn luyện lại: Nếu có đủ dữ liệu, kẻ tấn công có thể huấn luyện lại toàn bộ mô hình hoặc một số lớp cụ thể trên tập dữ liệu độc hại. Mục tiêu là đảm bảo rằng hành vi sai lệch được nhúng vào mô hình mà không bị phát hiện.
+
+		Giai đoạn 4: Triển khai và khai thác
+		Triển khai mô hình tấn công: Kẻ tấn công tích hợp mô hình bị thao túng vào hệ thống mục tiêu hoặc khai thác từ xa qua API, ứng dụng hoặc các kênh tấn công khác.
+		Kích hoạt tấn công: Sử dụng các đầu vào đã thiết kế hoặc khai thác lỗ hổng trong môi trường triển khai. Ví dụ: Một hình ảnh chứa trigger có thể khiến xe tự lái hiểu nhầm biển báo tốc độ "80 km/h" thành "STOP," gây ra sự cố nguy hiểm.
+Các chiến lược khác
+Tấn công hộp đen: Nếu không truy cập được trực tiếp mô hình, kẻ tấn công có thể sử dụng các kỹ thuật hộp đen như thao túng truy vấn hoặc phương pháp dựa trên gradient để suy ra và điều chỉnh hành vi của mô hình.
+[Câu chuyển sang slide tiếp theo:]
+"Qua các giai đoạn này, chúng ta thấy rõ rằng tấn công vào Transfer Learning là một quá trình phức tạp nhưng cực kỳ nguy hiểm. Vậy, các chiến lược phòng thủ nào có thể giúp giảm thiểu rủi ro này? Hãy cùng khám phá trong phần tiếp theo."
+
+Slide 5:
+[Lời dẫn chi tiết:]
+"Các cuộc tấn công vào Transfer Learning không chỉ ảnh hưởng đến khả năng hoạt động của hệ thống mà còn có thể gây ra hậu quả nghiêm trọng trong các lĩnh vực quan trọng. Đặc biệt, khi học chuyển giao được ứng dụng rộng rãi trong các ngành như xe tự lái, y tế, và tài chính, bất kỳ lỗ hổng nào cũng có thể dẫn đến những nguy cơ không thể lường trước. Hãy cùng xem xét tác động của các cuộc tấn công này.“
+
+[Điểm nhấn chi tiết:]
+1. Các ứng dụng bị ảnh hưởng:
+Xe tự lái (Autonomous Vehicles):
+Transfer Learning thường được sử dụng để nhận diện biển báo giao thông, phân tích đường đi, hoặc phát hiện chướng ngại vật.
+Nguy cơ:
+Một cuộc tấn công có thể làm hệ thống nhận diện sai biển báo tốc độ hoặc tín hiệu giao thông, dẫn đến tai nạn nghiêm trọng.
+Ví dụ: Nhận diện sai biển báo "STOP" thành "80 km/h."
+Y tế (Healthcare):
+Các mô hình học chuyển giao được sử dụng trong chẩn đoán hình ảnh, như phát hiện khối u hoặc phân loại bệnh lý dựa trên X-quang.
+Nguy cơ:
+Một tấn công có thể làm sai lệch kết quả chẩn đoán, dẫn đến việc bỏ sót bệnh nghiêm trọng hoặc điều trị sai hướng.
+Ví dụ: Một ảnh X-quang bị thao túng có thể khiến mô hình không phát hiện được ung thư phổi.
+Tài chính (Finance):
+Transfer Learning được áp dụng để phát hiện gian lận, phân tích tín dụng, và dự báo thị trường.
+Nguy cơ:
+Tấn công vào mô hình có thể dẫn đến việc phê duyệt tín dụng sai, bỏ sót các giao dịch gian lận, hoặc dự đoán sai xu hướng thị trường.
+Ví dụ: Một cuộc tấn công có thể thao túng các đầu vào để mô hình chấp nhận giao dịch bất hợp pháp.
+
+2. Các hậu quả của tấn công:
+Phân loại sai (Misclassification):
+Các cuộc tấn công như adversarial examples có thể làm mô hình đưa ra dự đoán sai lệch, gây lỗi trong các hệ thống tự động.
+Ví dụ: Một hệ thống nhận diện khuôn mặt có thể phân loại nhầm một kẻ xâm nhập là người hợp lệ.
+Rò rỉ dữ liệu (Data Exfiltration):
+Tấn công vào mô hình có thể trích xuất thông tin nhạy cảm từ dữ liệu huấn luyện, bao gồm thông tin cá nhân, dữ liệu tài chính, hoặc thông tin y tế.
+Ví dụ: Một cuộc tấn công hộp trắng có thể suy ra danh tính bệnh nhân từ mô hình chẩn đoán y khoa.
+Thất thoát tài sản (Asset Loss):
+Các tổ chức có thể chịu thiệt hại tài chính lớn khi các mô hình bị thao túng hoặc sử dụng sai mục đích.
+Ví dụ: Một mô hình dự đoán thị trường bị tấn công có thể dẫn đến các quyết định đầu tư sai lầm, gây tổn thất lớn về tài chính.
+
+Mô tả kịch bản trong hình ảnh:
+Hình ảnh minh họa cách Transfer Learning Attack có thể lợi dụng perturbation (nhiễu nhỏ) để thao túng mô hình học chuyển giao, cụ thể là gây sai lệch trong nhận diện hoặc phân loại.
+Trường hợp không bị tấn công (Hàng trên):
+Target: Hình ảnh mục tiêu (ví dụ: ảnh một nhân vật như Obama).
+Source: Hình ảnh ban đầu không bị thêm nhiễu.
+Kết quả: Mô hình phân lớp cho ra đại diện khác nhau (different representations) giữa Target và Source, dẫn đến kết quả phân loại chính xác (ví dụ: "Obama" vs. "Kova").
+Trường hợp bị tấn công (Hàng dưới):
+Perturbation: Kẻ tấn công thêm một lượng nhiễu nhỏ vào hình ảnh Source. Nhiễu này thường không thể nhận thấy bằng mắt thường nhưng được tối ưu hóa để đánh lừa mô hình.
+Kết quả:
+Mô hình tạo ra các đại diện tương tự (similar representations) giữa Target và Source, mặc dù hình ảnh đã bị thay đổi.
+Điều này dẫn đến sai lệch trong phân loại, khiến mô hình hiểu nhầm (ví dụ: cả hai hình ảnh đều bị phân loại sai thành "Obama").
+Tác động nghiêm trọng:
+Phân loại sai (Misclassification):
+Tấn công này có thể khiến hệ thống nhận diện nhầm đối tượng.
+Ví dụ:
+Trong nhận diện khuôn mặt, hệ thống bảo mật có thể xác định sai kẻ xâm nhập là một nhân vật hợp pháp (như Obama), dẫn đến truy cập trái phép.
+Tấn công vào các hệ thống an ninh:
+Những tấn công như vậy có thể gây hậu quả nghiêm trọng trong các hệ thống bảo mật dựa trên sinh trắc học (biometric-based systems) như cửa khóa, thanh toán di động, hoặc hệ thống nhận diện tại sân bay.
+Khó phát hiện:
+Perturbation (nhiễu) thường rất nhỏ và không ảnh hưởng đến chất lượng hình ảnh đối với con người. Tuy nhiên, nó có thể đánh lừa mô hình một cách hiệu quả, khiến người dùng không nhận ra lỗi cho đến khi bị khai thác.
+
+[Câu chốt và chuyển tiếp:]
+"Tóm lại, tác động của các cuộc tấn công Transfer Learning có thể rất nghiêm trọng, đặc biệt khi chúng xảy ra trong các lĩnh vực nhạy cảm như xe tự lái, y tế, và tài chính. Điều này đòi hỏi chúng ta phải có các biện pháp phòng thủ mạnh mẽ để giảm thiểu rủi ro. Trong phần tiếp theo, chúng ta sẽ cùng thảo luận về các chiến lược phòng thủ hiệu quả."
+
+Slide 6:
+[Lời dẫn chi tiết:]
+"Để đối phó với các nguy cơ từ Transfer Learning Attack, chúng ta cần áp dụng các phương pháp phòng chống toàn diện. Những phương pháp này không chỉ tập trung vào dữ liệu, mô hình, mà còn phải bao quát cả quy trình triển khai và vận hành, nhằm giảm thiểu lỗ hổng bảo mật và nâng cao tính an toàn của hệ thống học máy."
+
+[Điểm nhấn:]
+Biện pháp phòng ngừa (Preventative Measures):
+Sử dụng dữ liệu huấn luyện an toàn và đáng tin cậy:
+Kiểm tra chất lượng, phát hiện bất thường, và bảo vệ dữ liệu nhạy cảm (PII).
+Đảm bảo dữ liệu không bị can thiệp để tránh truyền tri thức độc hại.
+Cách ly mô hình (Model Isolation):
+Phân tách môi trường huấn luyện và triển khai.
+Ưu tiên các mô hình đơn giản với ít lớp để giảm lỗ hổng và dễ kiểm tra.
+Sử dụng Knowledge Distillation:
+Chuyển giao tri thức từ mô hình lớn sang mô hình nhỏ hơn, giúp cải thiện tính khái quát và giảm khả năng bị tấn công.
+Áp dụng Differential Privacy:
+Bảo vệ quyền riêng tư dữ liệu huấn luyện, giảm nguy cơ rò rỉ thông tin.
+Lưu ý: Giảm quyền riêng tư có thể làm giảm độ chính xác mô hình.
+Huấn luyện đối kháng (Adversarial Training):
+Sử dụng ví dụ đối kháng trong huấn luyện để tăng tính chống chịu trước các cuộc tấn công tương tự.
+Giám sát và cập nhật thường xuyên:
+Theo dõi hiệu năng mô hình, cập nhật dữ liệu thường xuyên để đối phó với các thay đổi như data drift, label drift, hoặc concept drift.
+Triển khai trong môi trường an toàn:
+Sử dụng kiểm soát truy cập, mã hóa, và phân quyền (RBAC) để bảo vệ mô hình trước truy cập trái phép.
+Kiểm tra bảo mật định kỳ:
+Thực hiện kiểm tra bảo mật thường xuyên để phát hiện và vá lỗ hổng.
+Kỹ thuật giảm thiểu (Mitigation Techniques):
+Tăng cường dữ liệu (Data Augmentation):
+Biến đổi dữ liệu ngẫu nhiên để cải thiện khả năng khái quát hóa, giảm nguy cơ bị tấn công, đặc biệt là pixel attack.
+Chưng cất mô hình (Model Distillation):
+Chuyển tri thức từ mô hình phức tạp sang mô hình nhỏ hơn, giúp dễ dàng phát hiện các điểm tấn công.
+Phương pháp Ensemble:
+Kết hợp dự đoán từ nhiều mô hình khác nhau để giảm thiểu tác động của các tấn công riêng lẻ.
+Hậu xử lý và phát hiện bất thường (Post-processing & Anomaly Detection):
+Phát hiện đầu ra đáng ngờ và quay lại dự đoán an toàn hơn.
+Chủ động và cập nhật kiến thức:
+Luôn cập nhật các phương pháp bảo mật mới để đối phó với các kỹ thuật tấn công ngày càng tinh vi.
+Mô hình hóa mối đe dọa:
+Xây dựng kịch bản tấn công và tùy chỉnh chiến lược phòng thủ.
+Đánh đổi giữa hiệu năng và bảo mật:
+Cân nhắc giữa khả năng chống chịu tấn công và hiệu năng mô hình.
+[Câu kết:]"Không có phương pháp nào là tuyệt đối. Kết hợp các chiến lược trên và duy trì cảnh giác là cách tốt nhất để giảm thiểu nguy cơ tấn công Transfer Learning và bảo vệ dữ liệu cũng như mô hình của bạn."
+4. Các cân nhắc bổ sung
+Xây dựng mô hình mối đe dọa (Threat Model):
+Định nghĩa các kịch bản tấn công cụ thể và ưu tiên xử lý các biến số dễ bị tấn công nhất.
+Cân bằng hiệu năng và bảo mật (Performance Trade-offs):
+Đánh giá sự đánh đổi giữa khả năng chống chịu tấn công và hiệu năng mong muốn, đặc biệt trong các ứng dụng yêu cầu cao về quyền riêng tư dữ liệu.
+Nghiên cứu liên tục (Emerging Research):
+Luôn cập nhật các tiến bộ trong bảo vệ chống lại tấn công Transfer Learning để triển khai các phương pháp mới khi cần thiết.
+
+Mô tả mô hình trong hình ảnh:
+Hình ảnh minh họa một phương pháp sử dụng mô hình Teacher-Student để bảo vệ dữ liệu nhạy cảm khỏi các tấn công Transfer Learning. Đây là một chiến lược hiệu quả nhằm ngăn chặn rò rỉ dữ liệu và giảm nguy cơ tấn công từ các kẻ xâm nhập.
+Các bước chính:
+Dữ liệu nhạy cảm (Sensitive Data):
+Dữ liệu nhạy cảm được chia thành nhiều tập con riêng biệt (Data 1, Data 2, ..., Data n).
+Điều này đảm bảo rằng mỗi phần dữ liệu chỉ được sử dụng bởi một mô hình "giáo viên" (Teacher) cụ thể, tránh việc tổng hợp toàn bộ dữ liệu tại một điểm trung tâm.
+Huấn luyện mô hình giáo viên (Teacher Models):
+Mỗi tập dữ liệu con được sử dụng để huấn luyện một mô hình giáo viên độc lập (Teacher 1, Teacher 2, ..., Teacher n).
+Mô hình giáo viên chỉ hoạt động trên dữ liệu riêng của mình và không chia sẻ thông tin trực tiếp với các mô hình khác hoặc kẻ tấn công.
+Tổng hợp kết quả từ các mô hình giáo viên (Aggregate Teacher):
+Một lớp trung gian được gọi là Aggregate Teacher tổng hợp kết quả dự đoán từ tất cả các mô hình giáo viên.
+Aggregate Teacher hoạt động trên dữ liệu tổng hợp, không cho phép truy cập trực tiếp vào dữ liệu gốc hoặc các trọng số của mô hình giáo viên.
+Điều này đảm bảo tính riêng tư của dữ liệu huấn luyện.
+Huấn luyện mô hình học sinh (Student Model):
+Mô hình học sinh (Student Model) được huấn luyện trên các kết quả tổng hợp từ Aggregate Teacher.
+Mô hình học sinh sử dụng dữ liệu công khai không nhạy cảm (Incomplete Public Data) để tăng tính khái quát và độ chính xác.
+Giới hạn truy cập (Restricted Access):
+Dữ liệu nhạy cảm và mô hình giáo viên không thể truy cập bởi kẻ tấn công.
+Kẻ tấn công chỉ có thể truy cập mô hình học sinh thông qua truy vấn (Queries), hạn chế khả năng thao túng.
+
+[Câu kết chuyển tiếp:]
+"Như vậy, với các phương pháp bảo vệ toàn diện từ dữ liệu đến triển khai, chúng ta có thể xây dựng những mô hình học máy không chỉ mạnh mẽ mà còn an toàn trước các cuộc tấn công Transfer Learning.”
+
+Slide 7:
+[Lời dẫn:]"Để hiểu rõ tác động của tấn công Transfer Learning, bài nghiên cứu đã tiến hành các thí nghiệm với các chiến lược huấn luyện khác nhau và đánh giá hiệu quả của các cuộc tấn công hộp trắng (white-box) và hộp đen (black-box). Hãy cùng xem xét các thiết lập thí nghiệm và kết quả chính."
+Nội dung chính:
+1. Thiết lập thí nghiệm:
+Chiến lược huấn luyện mô hình:
+Scratch: Mô hình được huấn luyện từ đầu với dữ liệu miền mục tiêu, không sử dụng Transfer Learning.
+Fine-tune (FT): Mô hình sử dụng tham số từ mô hình nguồn và được tinh chỉnh với dữ liệu miền mục tiêu.
+CommonInit: Cả hai mô hình miền nguồn và mục tiêu được khởi tạo từ một mô hình lớn (Domain C), sau đó được tinh chỉnh với dữ liệu riêng.
+Dữ liệu thí nghiệm:
+Dùng 7 tập dữ liệu, ví dụ: MNIST, CIFAR10, STL10, với các nhiệm vụ chuyển giao giữa các miền (Domain A, Domain B, Domain C).
+Các loại tấn công:
+Tấn công hộp trắng (White-box): Kẻ tấn công có toàn quyền truy cập mô hình mục tiêu. => Kiểm tra khả năng của mô hình mục tiêu trong việc chống lại các ví dụ đối kháng được tạo một cách tối ưu.
+Tấn công hộp đen (Black-box): Kẻ tấn công không có quyền truy cập trực tiếp vào mô hình mục tiêu. Thay vào đó, chúng sử dụng một mô hình nguồn đã biết (pre-trained model) để tạo ví dụ đối kháng, sau đó chuyển giao (transfer) các ví dụ này để tấn công mô hình mục tiêu. => Đánh giá mức độ dễ bị tổn thương của mô hình Fine-tuned trước các ví dụ đối kháng được tạo từ mô hình nguồn.
+2. Kết quả chính:
+Hiệu quả của Transfer Learning:
+Fine-tuning cải thiện đáng kể độ chính xác phân loại và khả năng chống chịu trước các tấn công hộp trắng so với huấn luyện từ đầu (Scratch).
+Ví dụ: Độ chính xác tăng từ 50.86% lên 84.96% trên nhiệm vụ S → M (SVHN → MNIST).
+Tấn công hộp đen:
+Fine-tuned models dễ bị tổn thương bởi các ví dụ đối kháng được tạo từ mô hình nguồn.
+Kết quả cho thấy khi Fine-tuning được sử dụng, độ chính xác tấn công giảm mạnh khi mức độ nhiễu (perturbation budget) tăng.
+Đo lường tính chuyển giao (Transferability):
+Chỉ số γ cho thấy các mô hình Fine-tuned dễ bị tấn công hơn bởi các ví dụ đối kháng từ mô hình nguồn so với các ví dụ được tạo riêng cho mô hình mục tiêu.
+[Câu kết:]"Kết quả thực nghiệm này nhấn mạnh rằng mặc dù Transfer Learning cải thiện hiệu suất, nhưng nó cũng mang lại rủi ro cao hơn trước các tấn công hộp đen. Điều này yêu cầu các biện pháp bảo vệ toàn diện trong suốt quá trình triển khai."
+
+Slide 8:
+[Lời dẫn:]
+"Hình ảnh dưới đây minh họa các kết quả chính trong bài báo, so sánh hiệu suất giữa mô hình huấn luyện từ đầu (Scratch) và mô hình tinh chỉnh (Fine-tuning - FT). Thí nghiệm được tiến hành trên năm nhiệm vụ chuyển giao dữ liệu, đánh giá cả độ chính xác phân loại và khả năng chống chịu trước tấn công hộp trắng (White-box FGSM).“
+Nội dung mô tả:
+(a) Độ chính xác phân loại:
+Đồ thị bên trái (a):
+So sánh độ chính xác phân loại giữa hai mô hình (Scratch và FT) trên 5 nhiệm vụ chuyển giao:
+M → U (MNIST → USPS).
+U → M (USPS → MNIST).
+S → M (SVHN → MNIST).
+S → Syn (SVHN → Synthetic Digits).
+CIFAR → STL (CIFAR10 → STL10).
+Nhận xét:
+Mô hình Fine-tuning (FT) luôn đạt độ chính xác cao hơn mô hình Scratch trong tất cả các nhiệm vụ.
+Ví dụ: Trong nhiệm vụ S → M, độ chính xác của FT tăng từ ~50% (Scratch) lên ~85%.
+(b-f) Khả năng chống chịu trước tấn công hộp trắng (White-box FGSM):
+Các đồ thị (b-f):
+Đánh giá độ chính xác của hai mô hình dưới các mức nhiễu khác nhau (ϵ\epsilonϵ), đại diện cho các tấn công FGSM:
+(b) M → U (MNIST → USPS).
+(c) U → M (USPS → MNIST).
+(d) S → M (SVHN → MNIST).
+(e) S → Syn (SVHN → Synthetic Digits).
+(f) CIFAR → STL (CIFAR10 → STL10).
+Nhận xét:
+Đường màu cam (FT) thể hiện mô hình Fine-tuning, luôn có độ chính xác cao hơn so với Scratch (đường màu xanh) khi chịu các tấn công FGSM.
+Khi mức độ nhiễu (ϵ\epsilonϵ) tăng, độ chính xác giảm ở cả hai mô hình, nhưng FT vẫn thể hiện khả năng chống chịu tốt hơn.
+Ví dụ: Trong nhiệm vụ CIFAR → STL, độ chính xác của FT giảm từ 60% xuống ~30% khi ϵ\epsilonϵ tăng, nhưng vẫn tốt hơn đáng kể so với Scratch (~10%).
+Tổng kết:
+Fine-tuning vượt trội hơn Scratch:
+Cả về độ chính xác phân loại và khả năng chống chịu trước các tấn công hộp trắng.
+Đặc biệt hiệu quả trong các nhiệm vụ khó như S → M hoặc CIFAR → STL.
+Tác động của nhiễu đối kháng (ϵ\epsilonϵ):
+Khi ϵ\epsilonϵ tăng, khả năng chống chịu của mô hình giảm.
+Tuy nhiên, mô hình FT vẫn duy trì sự ổn định hơn so với Scratch.
+[Câu chuyển tiếp:]
+"Kết quả này cho thấy, mặc dù mô hình Fine-tuning cải thiện hiệu suất đáng kể, nhưng vẫn cần các biện pháp bảo vệ bổ sung để tăng khả năng chống chịu trước tấn công đối kháng. Hãy cùng xem xét các phương pháp phòng chống trong phần tiếp theo."
+
+Slide 9:
+Slide: Kết Quả Thực Nghiệm - Black-box Attack
+[Lời dẫn:]
+"Hình ảnh dưới đây trình bày kết quả thực nghiệm về khả năng chống chịu của các mô hình trước tấn công hộp đen (Black-box Attack). Kết quả được phân tích dựa trên độ chính xác đối kháng (adversarial accuracy) và tính chuyển giao (transferability γ) của các ví dụ đối kháng được tạo ra."
+Nội dung mô tả:
+(a-d) Adversarial Accuracy:
+Mô tả:
+Các đồ thị (a-d) so sánh độ chính xác đối kháng giữa 3 loại mô hình: 
+Scratch: Huấn luyện từ đầu.
+FT: Mô hình tinh chỉnh (Fine-tuning).
+Common Init: Mô hình sử dụng khởi tạo chung từ mô hình nguồn.
+Trục X: Mức độ nhiễu (ϵ\epsilon) trong các ví dụ đối kháng.
+Trục Y: Độ chính xác đối kháng.
+Nhận xét:
+Khi ϵ\epsilon tăng, độ chính xác đối kháng giảm mạnh ở tất cả các mô hình.
+Mô hình Fine-tuning (FT) và Common Init dễ bị tổn thương hơn so với mô hình Scratch: 
+Ví dụ: Trong nhiệm vụ CIFAR → STL, độ chính xác của FT giảm xuống dưới 20% khi ϵ=0.06\epsilon = 0.06, trong khi Scratch vẫn giữ được gần 40%.
+(a-d) Transferability γ:
+Mô tả:
+Các đồ thị (a-d) phân tích tính chuyển giao (γ\gamma) của các ví dụ đối kháng từ mô hình nguồn sang mô hình mục tiêu.
+Trục X: Mức độ nhiễu (ϵ\epsilon).
+Trục Y: Giá trị γ đo lường tính chuyển giao.
+Nhận xét:
+Giá trị γ cao ở mô hình Fine-tuning và Common Init, cho thấy các ví dụ đối kháng từ mô hình nguồn dễ dàng chuyển giao để tấn công chúng.
+Ví dụ: Trong nhiệm vụ S → M, giá trị γ của FT đạt mức 1.5 khi ϵ=0.1\epsilon = 0.1, trong khi Scratch gần bằng 0.
+Tổng kết:
+Fine-tuning tăng độ chính xác nhưng dễ bị tấn công hộp đen:
+Mô hình FT và Common Init cho thấy độ chính xác giảm đáng kể khi đối mặt với các ví dụ đối kháng từ mô hình nguồn.
+Điều này khẳng định rằng Fine-tuning làm tăng rủi ro trước các cuộc tấn công hộp đen.
+Giá trị γ cao phản ánh tính chuyển giao mạnh mẽ:
+Ví dụ đối kháng từ mô hình nguồn có khả năng tấn công hiệu quả các mô hình FT và Common Init, nhấn mạnh lỗ hổng bảo mật trong Transfer Learning.
+[Câu kết chuyển tiếp:]
+"Những kết quả này nhấn mạnh sự cần thiết phải có các biện pháp phòng ngừa bảo mật trong quá trình tinh chỉnh mô hình, đặc biệt là khi triển khai trong các môi trường dễ bị tấn công. Tiếp theo, hãy cùng xem xét các chiến lược phòng chống cụ thể."
+
+Slide 10:
+Slide: Kết Quả Thực Nghiệm - Black-box Attack
+[Lời dẫn:]
+"Hình ảnh dưới đây trình bày kết quả thực nghiệm về khả năng chống chịu của các mô hình trước tấn công hộp đen (Black-box Attack). Kết quả được phân tích dựa trên độ chính xác đối kháng (adversarial accuracy) và tính chuyển giao (transferability γ) của các ví dụ đối kháng được tạo ra."
+Nội dung mô tả:
+(a-d) Adversarial Accuracy:
+Mô tả:
+Các đồ thị (a-d) so sánh độ chính xác đối kháng giữa 3 loại mô hình: 
+Scratch: Huấn luyện từ đầu.
+FT: Mô hình tinh chỉnh (Fine-tuning).
+Common Init: Mô hình sử dụng khởi tạo chung từ mô hình nguồn.
+Trục X: Mức độ nhiễu (ϵ\epsilon) trong các ví dụ đối kháng.
+Trục Y: Độ chính xác đối kháng.
+Nhận xét:
+Khi ϵ\epsilon tăng, độ chính xác đối kháng giảm mạnh ở tất cả các mô hình.
+Mô hình Fine-tuning (FT) và Common Init dễ bị tổn thương hơn so với mô hình Scratch: 
+Ví dụ: Trong nhiệm vụ CIFAR → STL, độ chính xác của FT giảm xuống dưới 20% khi ϵ=0.06\epsilon = 0.06, trong khi Scratch vẫn giữ được gần 40%.
+(a-d) Transferability γ:
+Mô tả:
+Các đồ thị (a-d) phân tích tính chuyển giao (γ\gamma) của các ví dụ đối kháng từ mô hình nguồn sang mô hình mục tiêu.
+Trục X: Mức độ nhiễu (ϵ\epsilon).
+Trục Y: Giá trị γ đo lường tính chuyển giao.
+Nhận xét:
+Giá trị γ cao ở mô hình Fine-tuning và Common Init, cho thấy các ví dụ đối kháng từ mô hình nguồn dễ dàng chuyển giao để tấn công chúng.
+Ví dụ: Trong nhiệm vụ S → M, giá trị γ của FT đạt mức 1.5 khi ϵ=0.1\epsilon = 0.1, trong khi Scratch gần bằng 0.
+Tổng kết:
+Fine-tuning tăng độ chính xác nhưng dễ bị tấn công hộp đen:
+Mô hình FT và Common Init cho thấy độ chính xác giảm đáng kể khi đối mặt với các ví dụ đối kháng từ mô hình nguồn.
+Điều này khẳng định rằng Fine-tuning làm tăng rủi ro trước các cuộc tấn công hộp đen.
+Giá trị γ cao phản ánh tính chuyển giao mạnh mẽ:
+Ví dụ đối kháng từ mô hình nguồn có khả năng tấn công hiệu quả các mô hình FT và Common Init, nhấn mạnh lỗ hổng bảo mật trong Transfer Learning.
+[Câu kết chuyển tiếp:]
+"Những kết quả này nhấn mạnh sự cần thiết phải có các biện pháp phòng ngừa bảo mật trong quá trình tinh chỉnh mô hình, đặc biệt là khi triển khai trong các môi trường dễ bị tấn công. Tiếp theo, hãy cùng xem xét các chiến lược phòng chống cụ thể."
+
+Slide 11: Kết Luận của tác giả
+[Lời dẫn:]
+"Kết quả nghiên cứu đã mang lại những hiểu biết quan trọng về tác động của Fine-tuning đối với khả năng chống chịu của các mô hình học chuyển giao, đồng thời nhấn mạnh cả lợi ích và rủi ro tiềm tàng trong việc áp dụng kỹ thuật này."
+Tóm tắt:
+Hiệu quả của Fine-tuning:
+Fine-tuning là một kỹ thuật học chuyển giao phổ biến và hiệu quả.
+Nó giúp tăng cường khả năng chống chịu của mô hình trước tấn công hộp trắng (White-box FGSM Attacks).
+Rủi ro tiềm tàng của Fine-tuning:
+Fine-tuning có thể làm tăng rủi ro trước các tấn công hộp đen.
+Mô hình Fine-tuned dễ bị tấn công bởi các ví dụ đối kháng được tạo từ mô hình nguồn, hơn so với mô hình được huấn luyện từ đầu (Scratch).
+Đóng góp nghiên cứu:
+Đề xuất một phương pháp tấn công hộp đen hiệu quả dành cho các mô hình học chuyển giao.
+Phát triển một chỉ số mới để đo lường tính chuyển giao của các ví dụ đối kháng, phục vụ cho nghiên cứu trong tương lai về lỗ hổng của các mô hình học chuyển giao.
+Ý nghĩa:
+Nghiên cứu khẳng định lợi ích của Fine-tuning nhưng cũng nhấn mạnh các rủi ro tiềm ẩn chưa được chú ý.
+Kết quả này có thể giúp định hướng phát triển các mô hình học chuyển giao vừa hiệu quả vừa chống chịu tốt hơn.
+[Câu kết:]
+"Chúng tôi hy vọng rằng những phát hiện này sẽ trở thành nền tảng cho các nghiên cứu tiếp theo, hướng tới xây dựng các mô hình học chuyển giao an toàn và hiệu quả hơn."
