@@ -1,11 +1,16 @@
 # Final project
 
-In this project, I use note book to train and write some code to run model. Model experiments metrics will deliver to MLFlow. Mlflow run as container. Run and build follow by `docker-compose` file on `mlflow` folder. Before run training note book, you must run `mlflow` first.
+## Về training model
+Việc training được thực hiện toàn toàn thông qua file `training.ipynb`. Quá trình training được tracking qua Mlflow, được run bằng docker trong folder mlflow.
 
-When chose best model, I will download it from mlflow model registry. If model too large, It will be save on goolge driver. Link will note in README file
+## Về run predict model
 
-<!-- Install jupyter kernel
+Người dùng cần change dir tới thư mục `project`. Sau đó run file `main.py`. Example 
+
+```bash
+python3 main.py --dataset=data/train.csv --model=decision-tree
 ```
-pip3 install jupyter ipykernel
-python312 -m ipykernel install --user --name=mlsec --display-name "python_mlsec"
-``` -->
+
+Trong đó 
+- `--dataset`: trỏ tới đường dẫn của validate data
+- `model`: tên model cần run predict
