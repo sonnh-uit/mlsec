@@ -5,3 +5,4 @@ validate.csv
 mlruns
 train.csv
 mlartifacts
+*.pkl
