@@ -4,3 +4,4 @@ train_.csv
 validate.csv
 mlruns
 train.csv
+mlartifacts
