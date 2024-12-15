@@ -14,35 +14,33 @@ flavors:
     model_format: xgb
     xgb_version: 2.1.2
 mlflow_version: 2.18.0
-model_size_bytes: 581399553
-model_uuid: d130f043ec134fa0a60a9179780e0d26
-run_id: 60af55e481b0484d94d9db46d7bb5822
+model_size_bytes: 595771243
+model_uuid: 239bfb59719e4e3fa43a9d4592591dd1
+run_id: 5ab7c660f0754d9a95879d93e4c80bb6
 signature:
   inputs: '[{"type": "double", "name": "flow_duration", "required": true}, {"type":
     "double", "name": "Header_Length", "required": true}, {"type": "double", "name":
     "Protocol type", "required": true}, {"type": "double", "name": "Duration", "required":
     true}, {"type": "double", "name": "Rate", "required": true}, {"type": "double",
-    "name": "Srate", "required": true}, {"type": "double", "name": "syn_flag_number",
-    "required": true}, {"type": "double", "name": "ack_flag_number", "required": true},
-    {"type": "double", "name": "ack_count", "required": true}, {"type": "double",
-    "name": "syn_count", "required": true}, {"type": "double", "name": "fin_count",
-    "required": true}, {"type": "double", "name": "urg_count", "required": true},
-    {"type": "double", "name": "rst_count", "required": true}, {"type": "double",
-    "name": "HTTP", "required": true}, {"type": "double", "name": "HTTPS", "required":
-    true}, {"type": "double", "name": "DNS", "required": true}, {"type": "double",
-    "name": "IRC", "required": true}, {"type": "double", "name": "TCP", "required":
-    true}, {"type": "double", "name": "UDP", "required": true}, {"type": "double",
-    "name": "DHCP", "required": true}, {"type": "double", "name": "ICMP", "required":
-    true}, {"type": "double", "name": "LLC", "required": true}, {"type": "double",
-    "name": "Tot sum", "required": true}, {"type": "double", "name": "Min", "required":
-    true}, {"type": "double", "name": "Max", "required": true}, {"type": "double",
-    "name": "AVG", "required": true}, {"type": "double", "name": "Std", "required":
-    true}, {"type": "double", "name": "Tot size", "required": true}, {"type": "double",
-    "name": "IAT", "required": true}, {"type": "double", "name": "Number", "required":
-    true}, {"type": "double", "name": "Magnitue", "required": true}, {"type": "double",
-    "name": "Radius", "required": true}, {"type": "double", "name": "Covariance",
-    "required": true}, {"type": "double", "name": "Variance", "required": true}, {"type":
-    "double", "name": "Weight", "required": true}]'
+    "name": "Srate", "required": true}, {"type": "double", "name": "ack_flag_number",
+    "required": true}, {"type": "double", "name": "ack_count", "required": true},
+    {"type": "double", "name": "syn_count", "required": true}, {"type": "double",
+    "name": "fin_count", "required": true}, {"type": "double", "name": "urg_count",
+    "required": true}, {"type": "double", "name": "rst_count", "required": true},
+    {"type": "double", "name": "HTTP", "required": true}, {"type": "double", "name":
+    "HTTPS", "required": true}, {"type": "double", "name": "IRC", "required": true},
+    {"type": "double", "name": "TCP", "required": true}, {"type": "double", "name":
+    "UDP", "required": true}, {"type": "double", "name": "DHCP", "required": true},
+    {"type": "double", "name": "ICMP", "required": true}, {"type": "double", "name":
+    "Tot sum", "required": true}, {"type": "double", "name": "Min", "required": true},
+    {"type": "double", "name": "Max", "required": true}, {"type": "double", "name":
+    "AVG", "required": true}, {"type": "double", "name": "Std", "required": true},
+    {"type": "double", "name": "Tot size", "required": true}, {"type": "double", "name":
+    "IAT", "required": true}, {"type": "double", "name": "Number", "required": true},
+    {"type": "double", "name": "Magnitue", "required": true}, {"type": "double", "name":
+    "Radius", "required": true}, {"type": "double", "name": "Covariance", "required":
+    true}, {"type": "double", "name": "Variance", "required": true}, {"type": "double",
+    "name": "Weight", "required": true}]'
   outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
   params: null
-utc_time_created: '2024-12-07 23:55:26.413033'
+utc_time_created: '2024-12-12 14:11:48.227419'

@@ -3,3 +3,5 @@ data.csv
 train_.csv
 validate.csv
 mlruns
+mlartifacts
+*.pkl

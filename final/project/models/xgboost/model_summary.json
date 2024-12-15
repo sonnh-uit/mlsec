@@ -20,10 +20,10 @@
         "min_child_weight": 10
     },
     "metrics": {
-        "f1": 0.9408211248274494,
-        "precision": 0.9411736079314035,
-        "accuracy": 0.9419496061175173,
-        "recall": 0.9419496061175173
+        "f1": 0.93830528382391,
+        "precision": 0.9385174262275867,
+        "accuracy": 0.9394497823871394,
+        "recall": 0.9394497823871394
     },
     "droped_column": [
         [
@@ -38,7 +38,10 @@
             "fin_flag_number",
             "SSH",
             "psh_flag_number",
-            "rst_flag_number"
+            "rst_flag_number",
+            "DNS",
+            "LLC",
+            "syn_flag_number"
         ]
     ]
 }
