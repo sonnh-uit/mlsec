@@ -1,0 +1,38 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.11
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.2
+mlflow_version: 2.18.0
+model_size_bytes: 410296
+model_uuid: c914ccff491a4fd3963d526d0961a123
+run_id: 5050320804984f8c8e401d90d61981e0
+signature:
+  inputs: '[{"type": "double", "name": "flow_duration", "required": true}, {"type":
+    "double", "name": "Header_Length", "required": true}, {"type": "double", "name":
+    "Protocol type", "required": true}, {"type": "double", "name": "Duration", "required":
+    true}, {"type": "double", "name": "Rate", "required": true}, {"type": "double",
+    "name": "Srate", "required": true}, {"type": "double", "name": "fin_flag_number",
+    "required": true}, {"type": "double", "name": "syn_flag_number", "required": true},
+    {"type": "double", "name": "syn_count", "required": true}, {"type": "double",
+    "name": "fin_count", "required": true}, {"type": "double", "name": "urg_count",
+    "required": true}, {"type": "double", "name": "rst_count", "required": true},
+    {"type": "double", "name": "HTTP", "required": true}, {"type": "double", "name":
+    "UDP", "required": true}, {"type": "double", "name": "ICMP", "required": true},
+    {"type": "double", "name": "AVG", "required": true}, {"type": "double", "name":
+    "IAT", "required": true}, {"type": "double", "name": "Number", "required": true},
+    {"type": "double", "name": "Magnitue", "required": true}, {"type": "double", "name":
+    "Weight", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "object", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2024-12-12 14:43:18.181518'
