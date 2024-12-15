@@ -1,3 +1,0 @@
-configs: Namespace(dataset='usps', arch='DTN', ckpt_a='./ckpt/black-box/mnist_source.pt', ckpt_b='./ckpt/black-box/usps_scratch.pt', attack_method='FGSM', targeted=False, train_ratio=1.0, eps=[0.01568627450980392, 0.03137254901960784, 0.06274509803921569, 0.12549019607843137], g=False, n_classes=10)
-eps: 0.01568627450980392,0.03137254901960784,0.06274509803921569,0.12549019607843137
-accuracy: 0.8612903225806452,0.8586021505376344,0.8462365591397849,0.8279569892473119
