@@ -1,7 +1,7 @@
 # author:  sonnh
 # email:   sonnh.tech@gmail.com
 # created: 2024-12-06 19:19:28
-# updated: 2024-12-10 16:24:50
+# updated: 2024-12-15 21:45:59
 
 from config import build_args, download_model
 import pandas as pd
@@ -17,10 +17,11 @@ def boost_predict(dataset):
 
     with open(f"models/xgboost/model_summary.json", 'r') as file:
         metrics_ = json.load(file)
-    data = dataset.drop(columns=metrics_['droped_column'][0])
     
-    model_ = XGBClassifier()
-    model_.load_model(f"models/xgboost/model.xgb")
+    with open('models/xgboost/model.pkl', "rb") as file:
+        model_ = pickle.load(file)
+
+    data = dataset.drop(columns=metrics_['droped_column'][0])
     X_val = data.drop(columns=['Label'])
     label_encoder = LabelEncoder()
     y_val = label_encoder.fit_transform(data['Label'])

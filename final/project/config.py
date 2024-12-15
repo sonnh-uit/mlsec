@@ -1,14 +1,14 @@
 # author:  sonnh
 # email:   sonnh.tech@gmail.com
 # created: 2024-12-07 00:40:40
-# updated: 2024-12-10 16:43:00
+# updated: 2024-12-15 21:48:10
 
 import argparse, os
 import gdown
 
 model_uri = {
-    "xgboost" : "1TnfVjojca58ac_xJs9rZzDdLNW1Y_n35",
-    "decision-tree" : "1lncq8h244cwOY4JP3Y9z_x3XmOCFFQnr"
+    "xgboost" : "12z7iHj0KJxt-DOOYeQOGoNEdD1X790LI",
+    "decision-tree" : "1QL5V4t_diXWAT1VuAQV0x3T6IH_t7TRi"
 }
 
 def download_model(model_name):
@@ -17,8 +17,10 @@ def download_model(model_name):
         exit(1)
 
     if model_name == 'xgboost':
-        model_path=os.getcwd()+'/models/xgboost/model.xgb'
+        model_path=os.getcwd()+'/models/xgboost/model.pkl'
     else:
+        print("We do not support decision tree any more. Please choose another model")
+        exit(1)
         model_path=os.getcwd()+'/models/decision-tree/model.pkl'
 
     if not os.path.isfile(model_path):
@@ -32,7 +34,7 @@ def download_model(model_name):
 def build_args():
     parser = argparse.ArgumentParser(description="NT2211.CH180")
     parser.add_argument("--dataset", type=str, default="data/validate.csv", help="Path of validate data. Default is data/validate.csv")
-    parser.add_argument("--model", type=str, default="decision-tree",help="Name of model want to run predict. Supporting model: `xgboost`, `decision-tree`. Default is `decision-tree`")
+    parser.add_argument("--model", type=str, default="decision-tree",help="Name of model want to run predict. Supporting model: `xgboost`, `decision-tree`. Default is `xgboost`")
     args = parser.parse_args()
     return args
 
